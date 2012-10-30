@@ -2747,6 +2747,8 @@ static void __init msm8960_gfx_init(void)
 	}
 	if (cpu_is_msm8960ab()) {
 		kgsl_3d0_pdata->chipid = ADRENO_CHIPID(3, 2, 1, 0);
+		/* 8960PRO nominal clock rate is 320Mhz */
+		kgsl_3d0_pdata->pwrlevel[1].gpu_freq = 320000000;
 	} else {
 
 		/* 8960v3 GPU registers returns 5 for patch release
