@@ -113,7 +113,12 @@ armpmu_map_cache_event(unsigned (*cache_map)
 static int
 armpmu_map_event(const unsigned (*event_map)[PERF_COUNT_HW_MAX], u64 config)
 {
-	int mapping = (*event_map)[config];
+	int mapping;
+
+	if (config >= PERF_COUNT_HW_MAX)
+		return -EINVAL;
+
+	mapping = (*event_map)[config];
 	return mapping == HW_OP_UNSUPPORTED ? -ENOENT : mapping;
 }
 
@@ -447,7 +452,7 @@ armpmu_reserve_hardware(struct arm_pmu *armpmu)
 
 	if (plat && plat->free_pmu_irq)
 		armpmu->free_pmu_irq = plat->free_pmu_irq;
-	else if (!armpmu->request_pmu_irq)
+	else if (!armpmu->free_pmu_irq)
 		armpmu->free_pmu_irq = armpmu_generic_free_irq;
 
 	irqs = min(pmu_device->num_resources, num_possible_cpus());
