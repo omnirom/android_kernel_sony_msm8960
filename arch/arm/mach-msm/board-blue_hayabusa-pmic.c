@@ -384,7 +384,7 @@ module_init(input_devices_init);
 module_exit(input_devices_exit);
 
 static int pm8921_therm_mitigation[] = {
-	1425,
+	1525,
 	825,
 	475,
 	325,
@@ -407,10 +407,10 @@ struct pm8921_charger_platform_data pm8921_chg_pdata __devinitdata = {
 	.hysterisis_temp	= 3,
 	.temp_check_period	= 1,
 	.dc_unplug_check	= true,
-	.safe_current		= 1425,
-	.max_bat_chg_current	= 1425,
-	.cool_bat_chg_current	= 1425,
-	.warm_bat_chg_current	= 425,
+	.safe_current		= 1525,
+	.max_bat_chg_current	= 1525,
+	.cool_bat_chg_current	= 1525,
+	.warm_bat_chg_current	= 325,
 	.cool_bat_voltage	= 4200,
 	.warm_bat_voltage	= 4000,
 	.thermal_mitigation	= pm8921_therm_mitigation,
