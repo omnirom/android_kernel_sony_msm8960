@@ -467,6 +467,11 @@ static struct pm8xxx_pwm_platform_data pm8xxx_pwm_pdata = {
 	.dtest_channel	= PM8XXX_PWM_DTEST_CHANNEL_NONE,
 };
 
+struct pm8xxx_vibrator_platform_data pm8xxx_vibrator_pdata = {
+	.initial_vibrate_ms = 0,
+	.level_mV = 3100,
+};
+
 #define PM8921_HSED_MIC_BIAS 0xA1
 
 struct pm8921_mic_bias_platform_data pm8921_mic_bias_pdata = {
@@ -486,6 +491,7 @@ static struct pm8921_platform_data pm8921_platform_data __devinitdata = {
 	.adc_pdata		= &pm8xxx_adc_pdata,
 	.ccadc_pdata		= &pm8xxx_ccadc_pdata,
 	.pwm_pdata		= &pm8xxx_pwm_pdata,
+	.vibrator_pdata		= &pm8xxx_vibrator_pdata,
 	.mic_bias_pdata		= &pm8921_mic_bias_pdata,
 };
 
