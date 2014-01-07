@@ -26,6 +26,7 @@
 #include <mach/msm_bus_board.h>
 #include <mach/restart.h>
 #include <mach/pm8921-mic_bias.h>
+#include <mach/simple_remote_msm8960_pf.h>
 #include "devices.h"
 #include "board-8960.h"
 #include "charger-semc_blue.h"
@@ -492,6 +493,7 @@ static struct pm8921_platform_data pm8921_platform_data __devinitdata = {
 	.ccadc_pdata		= &pm8xxx_ccadc_pdata,
 	.pwm_pdata		= &pm8xxx_pwm_pdata,
 	.vibrator_pdata		= &pm8xxx_vibrator_pdata,
+	.simple_remote_pdata	= &simple_remote_pf_data,
 	.mic_bias_pdata		= &pm8921_mic_bias_pdata,
 };
 
